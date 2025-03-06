@@ -11,11 +11,11 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_welcome)
 
         val getStartedButton = findViewById<Button>(R.id.getStartedButton)
+// W metodzie onClick przycisku rozpocznij:
         getStartedButton.setOnClickListener {
-            // Przejście do głównej aktywności
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java) // Zmiana z MainActivity na LoginActivity
             startActivity(intent)
-            finish() // Zakończenie bieżącej aktywności
+            finish()
         }
     }
 }
