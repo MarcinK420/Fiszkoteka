@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/gradient_background"
     tools:context=".WelcomeActivity">
 
     <ImageView
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="FlashCards App"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
@@ -39,7 +39,7 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="Twórz i ucz się swoich fiszek efektywnie!"
-        android:textColor="@color/gray"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/getStartedButton"
         app:layout_constraintEnd_toEndOf="parent"
