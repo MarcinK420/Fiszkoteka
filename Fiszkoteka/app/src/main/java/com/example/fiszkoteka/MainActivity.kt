@@ -1,10 +1,14 @@
 package com.example.fiszkoteka
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,8 +30,41 @@ class MainActivity : AppCompatActivity() {
 
         val fab = findViewById<FloatingActionButton>(R.id.addFlashcardFab)
         fab.setOnClickListener {
-            Toast.makeText(this, "Dodaj nową fiszkę", Toast.LENGTH_SHORT).show()
-            // Add code to create new flashcard
+            showAddFlashcardDialog()
         }
+    }
+
+    private fun showAddFlashcardDialog() {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_flashcard, null)
+
+        val frontInput = dialogView.findViewById<TextInputEditText>(R.id.frontInput)
+        val backInput = dialogView.findViewById<TextInputEditText>(R.id.backInput)
+        val saveButton = dialogView.findViewById<Button>(R.id.saveButton)
+        val cancelButton = dialogView.findViewById<Button>(R.id.cancelButton)
+
+        val dialog = AlertDialog.Builder(this)
+            .setView(dialogView)
+            .setCancelable(true)
+            .create()
+
+        cancelButton.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        saveButton.setOnClickListener {
+            val front = frontInput.text.toString()
+            val back = backInput.text.toString()
+
+            if (front.isEmpty() || back.isEmpty()) {
+                Toast.makeText(this, "Wypełnij oba pola", Toast.LENGTH_SHORT).show()
+            } else {
+                // Here you would add the new flashcard to your list
+                // For now, just show a success message
+                Toast.makeText(this, "Fiszka dodana (funkcjonalność w przygotowaniu)", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+        }
+
+        dialog.show()
     }
 }
