@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 
@@ -31,6 +32,24 @@ class MainActivity : AppCompatActivity() {
         val fab = findViewById<FloatingActionButton>(R.id.addFlashcardFab)
         fab.setOnClickListener {
             showAddFlashcardDialog()
+        }
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    // Already on home screen
+                    true
+                }
+                R.id.nav_learn -> {
+                    Toast.makeText(this, "Ekran nauki (w przygotowaniu)", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_settings -> {
+                    Toast.makeText(this, "Ustawienia (w przygotowaniu)", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
         }
     }
 
