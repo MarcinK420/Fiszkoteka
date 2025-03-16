@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="verificationCodeInput" type="id" />
+    <item name="verificationCodeEditText" type="id" />
+    <item name="verifyButton" type="id" />
+    <item name="resendCodeText" type="id" />
+</resources>
