@@ -31,6 +31,9 @@
         <activity
             android:name=".SettingsActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
+        <activity
+            android:name=".FlashcardDetailActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
     </application>
 
 </manifest>

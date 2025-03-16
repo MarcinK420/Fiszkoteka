@@ -28,7 +28,14 @@ class MainActivity : AppCompatActivity() {
             Flashcard("Good morning", "Dzień dobry")
         )
 
-        recyclerView.adapter = FlashcardAdapter(exampleFlashcards)
+        recyclerView.adapter = FlashcardAdapter(exampleFlashcards) { flashcard ->
+            // Handle flashcard click
+            val intent = Intent(this, FlashcardDetailActivity::class.java).apply {
+                putExtra("FLASHCARD_FRONT", flashcard.front)
+                putExtra("FLASHCARD_BACK", flashcard.back)
+            }
+            startActivity(intent)
+        }
 
         val fab = findViewById<FloatingActionButton>(R.id.addFlashcardFab)
         fab.setOnClickListener {
