@@ -1,5 +1,6 @@
 package com.example.fiszkoteka
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
@@ -44,8 +45,9 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Ekran nauki (w przygotowaniu)", Toast.LENGTH_SHORT).show()
                     true
                 }
+// Replace the settings navigation code in MainActivity.kt
                 R.id.nav_settings -> {
-                    Toast.makeText(this, "Ustawienia (w przygotowaniu)", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, SettingsActivity::class.java))
                     true
                 }
                 else -> false

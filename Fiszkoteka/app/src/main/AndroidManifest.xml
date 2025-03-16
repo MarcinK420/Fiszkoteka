@@ -28,6 +28,9 @@
             android:name=".TwoFactorAuthActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
         <activity android:name=".MainActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"/>
     </application>
 
 </manifest>
