@@ -4,4 +4,9 @@
     <item name="verificationCodeEditText" type="id" />
     <item name="verifyButton" type="id" />
     <item name="resendCodeText" type="id" />
+    <item name="themeSwitch" type="id" />
+    <item name="notificationSwitch" type="id" />
+    <item name="accountSettings" type="id" />
+    <item name="logoutButton" type="id" />
+    <item name="aboutAppButton" type="id" />
 </resources>

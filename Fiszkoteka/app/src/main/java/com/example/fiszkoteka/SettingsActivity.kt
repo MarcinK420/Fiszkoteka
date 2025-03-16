@@ -1,8 +1,10 @@
 package com.example.fiszkoteka
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsActivity : AppCompatActivity() {
@@ -11,16 +13,38 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         setupToolbar()
+        setupBottomNavigation()
         setupListeners()
     }
 
     private fun setupToolbar() {
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        toolbar.setNavigationOnClickListener {
-            onBackPressed()
+        // No back button needed since we use bottom navigation
+    }
+
+    private fun setupBottomNavigation() {
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        // Select the settings tab
+        bottomNavigation.selectedItemId = R.id.nav_settings
+
+        bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish() // Close current activity to avoid stacking
+                    true
+                }
+                R.id.nav_learn -> {
+                    Toast.makeText(this, "Ekran nauki (w przygotowaniu)", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_settings -> {
+                    // Already on settings screen
+                    true
+                }
+                else -> false
+            }
         }
     }
 
